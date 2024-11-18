@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { DUMMY_TASKS } from '../../data/dummy-tasks';
 import { User } from '../user/user.model';
+import { TaskComponent } from "./task/task.component";
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [],
+  imports: [TaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.scss'
 })
