@@ -8,4 +8,9 @@ export class TasksService {
     getUserTasks(userId: string) {
         return this.tasks.filter((task) => task.userId === userId);
     }
+
+    removeTask(id: string) {
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+    }
+
 }
