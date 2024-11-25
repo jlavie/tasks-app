@@ -1,0 +1,25 @@
+<form (ngSubmit)="onSubmit()" class="example-form">
+    <mat-form-field>
+        <mat-label>Initial investment</mat-label>
+        <input matInput type="number" name="initialInvestment" placeholder="Ex. 1000" [(ngModel)]="initialInvestment">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Annual investment</mat-label>
+        <input matInput type="number" name="annualInvestment" placeholder="Ex. 100" [(ngModel)]="annualInvestment">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Expected return</mat-label>
+        <input matInput type="number" name="expectedReturn" maxlength="2" placeholder="Ex. 3" [(ngModel)]="expectedReturn">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Duration</mat-label>
+        <input matInput type="number" name="duration" maxlength="2" placeholder="Ex. 10" [(ngModel)]="duration">
+    </mat-form-field>
+
+    <p class="actions">
+        <button mat-flat-button type="submit">Calculate</button>
+    </p>
+</form>

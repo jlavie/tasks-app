@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, Input } from '@angular/core';
 import { CalculatorService } from '../calculator.service';
 import { ResultsData } from '../calculator.model';
 
@@ -12,7 +12,12 @@ import { ResultsData } from '../calculator.model';
 export class ResultsComponent {
   constructor(private calculatorService: CalculatorService) {}
 
-  get resultsData() {
-    return this.calculatorService.resultsData;
-  }
+  // get resultsData() {
+  //   return this.calculatorService.resultsData;
+  // }
+  // same as
+  // 
+  // resultsData = this.calculatorService.resultsData.asReadonly();
+  // or
+  resultsData = computed(() => this.calculatorService.resultsData());
 }

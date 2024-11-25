@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { CalculatorData, ResultsData } from './calculator.model';
 
 @Injectable({providedIn: 'root'})
 export class CalculatorService {
-    resultsData?: ResultsData[];
+    resultsData = signal<ResultsData[] | undefined>(undefined);
 
     calculInvestment(calculatorData: CalculatorData) {
         const investment = [];
@@ -26,6 +26,6 @@ export class CalculatorService {
             });
           }
         
-          this.resultsData = investment;
+          this.resultsData.set(investment);
     }
 }
