@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, output, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { InvestmentData } from '../investment.model';
 
 @Component({
   selector: 'app-invest-form',
@@ -12,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './invest-form.component.scss'
 })
 export class InvestFormComponent {
+  @Output() calculate = new EventEmitter<InvestmentData>();
+  // calculate = output() => angular > 17.3
 
   initialInvestment!: number;
   annualInvestment!: number;
@@ -19,6 +22,11 @@ export class InvestFormComponent {
   duration!: number;
 
   onSubmit() {
-    //
+    this.calculate.emit({
+      initialInvestment: this.initialInvestment,
+			annualInvestment: this.annualInvestment,
+			expectedReturn: this.expectedReturn,
+      duration: this.duration
+    })
   }
 }

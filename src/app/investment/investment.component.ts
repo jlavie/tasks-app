@@ -33,6 +33,7 @@ export class InvestmentComponent {
         });
       }
     
+      console.log(investment);
       return investment;
 }
 }
