@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { InvestmentResultsData } from '../investment.model';
 import { CurrencyPipe } from '@angular/common';
 
@@ -10,7 +10,7 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './invest-table.component.scss'
 })
 export class InvestTableComponent {
-  // results = input() => using signals
-  @Input() results?: InvestmentResultsData[];
+  results = input<InvestmentResultsData[]>(); // => using signals
+  //@Input() results?: InvestmentResultsData[];
 
 }

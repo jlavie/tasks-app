@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { InvestHeaderComponent } from "./invest-header/invest-header.component";
 import { InvestFormComponent } from "./invest-form/invest-form.component";
 import { InvestTableComponent } from "./invest-table/invest-table.component";
@@ -12,7 +12,7 @@ import { InvestmentData, InvestmentResultsData } from './investment.model';
   styleUrl: './investment.component.scss'
 })
 export class InvestmentComponent {
-  resultsData?: InvestmentResultsData[];
+  resultsData = signal<InvestmentResultsData[] | undefined>(undefined);
 
   calculInvestment(investmentData: InvestmentData) {
     const investment = [];
@@ -35,6 +35,6 @@ export class InvestmentComponent {
         });
       }
     
-      this.resultsData = investment;
+      this.resultsData.set(investment);
 }
 }
