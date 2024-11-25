@@ -1,10 +1,11 @@
 import { Component, Input, input } from '@angular/core';
 import { InvestmentResultsData } from '../investment.model';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-invest-table',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './invest-table.component.html',
   styleUrl: './invest-table.component.scss'
 })
