@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { ResultsComponent } from "./results/results.component";
 
 @Component({
   selector: 'app-calculator',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, ResultsComponent],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.scss'
 })
@@ -22,13 +23,11 @@ export class CalculatorComponent {
   constructor(private calculatorService: CalculatorService) {}
 
   onSubmit() {
-    let invest = this.calculatorService.calculInvestment({
+    this.calculatorService.calculInvestment({
 			initialInvestment: this.initialInvestment,
 			annualInvestment: this.annualInvestment,
 			expectedReturn: this.expectedReturn,
       duration: this.duration
-		},);
-
-    console.table(invest);
+		});
   }
 }
