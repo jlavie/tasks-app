@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { InvestHeaderComponent } from "./invest-header/invest-header.component";
 import { InvestFormComponent } from "./invest-form/invest-form.component";
 import { InvestTableComponent } from "./invest-table/invest-table.component";
-import { InvestmentData } from './investment.model';
+import { InvestmentData, InvestmentResultsData } from './investment.model';
 
 @Component({
   selector: 'app-investment',
@@ -12,6 +12,8 @@ import { InvestmentData } from './investment.model';
   styleUrl: './investment.component.scss'
 })
 export class InvestmentComponent {
+  resultsData?: InvestmentResultsData[];
+
   calculInvestment(investmentData: InvestmentData) {
     const investment = [];
     let investmentValue = investmentData.initialInvestment;
@@ -33,7 +35,6 @@ export class InvestmentComponent {
         });
       }
     
-      console.log(investment);
-      return investment;
+      this.resultsData = investment;
 }
 }
